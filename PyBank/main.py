@@ -55,9 +55,8 @@ with open(csvpath, 'r') as csvfile:
     change_max = max(change_value_list)
     #Identify index of change max
     change_max_index = change_value_list.index(change_max)
-    #Pull month value with corresponding index (list length is the same)
-    print(len(change_value_list))
-    print(len(month_value_list))
+    #Zip the two lists together
+    
 
     
     #Print Final Details
