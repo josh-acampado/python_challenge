@@ -31,19 +31,17 @@ with open(csvpath, 'r') as csvfile:
         #(calculated after loop)
 
         #Max of Profit/Losses, from month to month
-        #Calculate the change value, store that change and corresponding date into dictionary
-        #Be able to identify max change, and use that key to pull the associated value
+        #Calculate the change value, store that change 
         change_end = int(row[1])
         change_value_list.append(change_end - change_start)
         month_value_list.append(row[0])
         change_start = int(row[1])
 
-
         #Min of Profit/Losses, from month to month
-        #Calculate the change value, store that change and corresponding date into dictionary
-        #Be able to identify min change, and use that key to pull the associated value
 
     #Calculate after loop
+
+    #Profit Sum
     profit_value = list(map(int, profit_value))
     profit_sum = sum(profit_value)
 
@@ -52,11 +50,19 @@ with open(csvpath, 'r') as csvfile:
     average_change = (profit_value[-1] - profit_value[0]) / change_counter
     round_average_change = round(average_change, 2)
 
+    #Max Profit Change
+    #Identify change max
+    change_max = max(change_value_list)
+    #Identify index of change max
+    change_max_index = change_value_list.index(change_max)
+    #Pull month value with corresponding index (list length is the same)
+    print(len(change_value_list))
+    print(len(month_value_list))
+
     
     #Print Final Details
     print("Total Months: " + str(month_counter))
     print("Total: $" + str(profit_sum))
     print("Average Change: $" + str(round_average_change))
-    print(change_value_list)
-    print(month_value_list)
+
     
