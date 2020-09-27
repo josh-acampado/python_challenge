@@ -14,6 +14,7 @@ with open(csvpath, 'r') as csvfile:
 
     #defining variables
     month_counter = 0
+    profit_value = []
 
     #start loop
     for row in csvreader:
@@ -21,10 +22,18 @@ with open(csvpath, 'r') as csvfile:
         if row[0] != " ":
             month_counter = month_counter + 1
         #Sum of Profit/Losses
-
+        profit_value.append(row[1])
+            
         #Mean of Profit/Losses
 
         #Max of Profit/Losses, from month to month
 
         #Min of Profit/Losses, from month to month
+
+    #Calculate after loop
+    profit_value = list(map(int, profit_value))
+    profit_sum = sum(profit_value)
+    
+    #Print Final Details
     print("Total Months: " + str(month_counter))
+    print("Total: $" + str(profit_sum))
