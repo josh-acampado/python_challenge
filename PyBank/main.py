@@ -17,7 +17,8 @@ with open(csvpath, 'r') as csvfile:
     profit_value = []
 
     change_start = 0
-
+    change_value_list = []
+    month_value_list = []
     #start loop
     for row in csvreader:
         #Count total number of months
@@ -32,6 +33,11 @@ with open(csvpath, 'r') as csvfile:
         #Max of Profit/Losses, from month to month
         #Calculate the change value, store that change and corresponding date into dictionary
         #Be able to identify max change, and use that key to pull the associated value
+        change_end = int(row[1])
+        change_value_list.append(change_end - change_start)
+        month_value_list.append(row[0])
+        change_start = int(row[1])
+
 
         #Min of Profit/Losses, from month to month
         #Calculate the change value, store that change and corresponding date into dictionary
@@ -51,4 +57,6 @@ with open(csvpath, 'r') as csvfile:
     print("Total Months: " + str(month_counter))
     print("Total: $" + str(profit_sum))
     print("Average Change: $" + str(round_average_change))
+    print(change_value_list)
+    print(month_value_list)
     
