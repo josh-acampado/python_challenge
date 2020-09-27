@@ -6,16 +6,25 @@ import csv
 csvpath = os.path.join('Resources','budget_data.csv')
 
 #open the csv
-with open(csvpath) as csvfile:
-    csvreader = csv.reader(csvfile, delimiter = ',')
-   
+with open(csvpath, 'r') as csvfile:
+    csvreader = csv.reader(csvfile, delimiter = ',') 
+
     #set header row
     csvheader = next(csvfile)
-   
-    #Count total number of months
-    line = len(list(csvreader))
-    print ("Total Number of Months: " + str(line))
 
-    #Total of Profit/Losses
+    #defining variables
+    month_counter = 0
+
+    #start loop
     for row in csvreader:
-        print (row)
+        #Count total number of months
+        if row[0] != " ":
+            month_counter = month_counter + 1
+        #Sum of Profit/Losses
+
+        #Mean of Profit/Losses
+
+        #Max of Profit/Losses, from month to month
+
+        #Min of Profit/Losses, from month to month
+    print("Total Months: " + str(month_counter))
