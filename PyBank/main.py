@@ -3,7 +3,7 @@ import os
 import csv
 
 #Open file path
-csvpath = os.path.join('Resources','budget_data.csv')
+csvpath = os.path.join( 'Resources','budget_data.csv')
 
 #open the csv
 with open(csvpath, 'r') as csvfile:
@@ -55,7 +55,9 @@ with open(csvpath, 'r') as csvfile:
     change_max = max(change_value_list)
     #Identify index of change max
     change_max_index = change_value_list.index(change_max)
-    #Zip the two lists together
+    #Pull value tied to the change_max_index
+    month_max = month_value_list[change_max_index]
+   
     
 
     
@@ -63,5 +65,6 @@ with open(csvpath, 'r') as csvfile:
     print("Total Months: " + str(month_counter))
     print("Total: $" + str(profit_sum))
     print("Average Change: $" + str(round_average_change))
+    print(f"Greatest Change in Profits: " + str(month_max) + " " + "($" + str(change_max) + ")")
 
     
