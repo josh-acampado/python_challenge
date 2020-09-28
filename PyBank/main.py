@@ -19,6 +19,7 @@ with open(csvpath, 'r') as csvfile:
     change_start = 0
     change_value_list = []
     month_value_list = []
+   
     #start loop
     for row in csvreader:
         #Count total number of months
@@ -68,6 +69,8 @@ with open(csvpath, 'r') as csvfile:
     month_min = month_value_list[change_min_index]
     
 #Print Final Details to Terminal
+print("Financial Analysis")
+print("------------------------------")
 print("Total Months: " + str(month_counter))
 print("Total: $" + str(profit_sum))
 print("Average Change: $" + str(round_average_change))
@@ -75,8 +78,3 @@ print("Greatest Change in Profits: " + str(month_max) + " " + "($" + str(change_
 print("Greatest Decrease in Profits: " + str(month_min) + " " + "($" + str(change_min) + ")")
 
 #Print to a .txt file
-#Set output path
-output_path = os.path.join("analysis","PyBank_Results.txt")
-
-#write to the txt file
-with open(output_path, "w") as txtfile:
