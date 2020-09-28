@@ -38,6 +38,7 @@ with open(csvpath, 'r') as csvfile:
         change_start = int(row[1])
 
         #Min of Profit/Losses, from month to month
+        #Same loop from before, change method in calculations
 
     #Calculate after loop
 
@@ -57,14 +58,20 @@ with open(csvpath, 'r') as csvfile:
     change_max_index = change_value_list.index(change_max)
     #Pull value tied to the change_max_index
     month_max = month_value_list[change_max_index]
-   
-    
 
+    #Min Profit Change
+    #Identify change min
+    change_min = min(change_value_list)
+    #Identify index of change min
+    change_min_index = change_value_list.index(change_min)
+    #Pull value tied to the change_max_index
+    month_min = month_value_list[change_min_index]
     
-    #Print Final Details
-    print("Total Months: " + str(month_counter))
-    print("Total: $" + str(profit_sum))
-    print("Average Change: $" + str(round_average_change))
-    print(f"Greatest Change in Profits: " + str(month_max) + " " + "($" + str(change_max) + ")")
+#Print Final Details to Terminal
+print("Total Months: " + str(month_counter))
+print("Total: $" + str(profit_sum))
+print("Average Change: $" + str(round_average_change))
+print("Greatest Change in Profits: " + str(month_max) + " " + "($" + str(change_max) + ")")
+print("Greatest Decrease in Profits: " + str(month_min) + " " + "($" + str(change_min) + ")")
 
     
