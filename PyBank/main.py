@@ -74,4 +74,9 @@ print("Average Change: $" + str(round_average_change))
 print("Greatest Change in Profits: " + str(month_max) + " " + "($" + str(change_max) + ")")
 print("Greatest Decrease in Profits: " + str(month_min) + " " + "($" + str(change_min) + ")")
 
-    
+#Print to a .txt file
+#Set output path
+output_path = os.path.join("analysis","PyBank_Results.txt")
+
+#write to the txt file
+with open(output_path, "w") as txtfile:
