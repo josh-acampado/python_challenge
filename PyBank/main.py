@@ -71,10 +71,22 @@ with open(csvpath, 'r') as csvfile:
 #Print Final Details to Terminal
 print("Financial Analysis")
 print("------------------------------")
-print("Total Months: " + str(month_counter))
+print(f"Total Months:  {month_counter}")
 print("Total: $" + str(profit_sum))
 print("Average Change: $" + str(round_average_change))
 print("Greatest Change in Profits: " + str(month_max) + " " + "($" + str(change_max) + ")")
 print("Greatest Decrease in Profits: " + str(month_min) + " " + "($" + str(change_min) + ")")
 
 #Print to a .txt file
+#Specify the file to write to
+txt_results = os.path.join ("analysis", "PyBankResults.txt")
+
+#Open and write file
+with open(txt_results, "w") as text_file:
+    text_file.write("Financial Analysis \n")
+    text_file.write("-------------------------- \n")
+    text_file.write(f"Total Months:  {month_counter} \n")
+    text_file.write("Total: $" + str(profit_sum) + "\n")
+    text_file.write("Average Change: $" + str(round_average_change) + "\n")
+    text_file.write("Greatest Change in Profits: " + str(month_max) + " " + "($" + str(change_max) + ")" + "\n")
+    text_file.write("Greatest Decrease in Profits: " + str(month_min) + " " + "($" + str(change_min) + ")" + "\n")
