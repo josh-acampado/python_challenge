@@ -73,3 +73,21 @@ print(str(candidates[3]) + ": " + str(otooley_percent) + "% " + "(" + str(otoole
 print("-------------------------------")
 print("Winner: " + str(winner))
 print("-------------------------------")
+
+#Print out Text File
+#Specify the file to write to
+txt_results = os.path.join ("analysis", "PyPollResults.txt")
+
+#Open and write file
+with open(txt_results, "w") as text_file:
+    text_file.write("Election Results \n")
+    text_file.write("------------------------------- \n")
+    text_file.write("Total Votes: " + str(total_vote_counter) + "\n")
+    text_file.write("------------------------------- \n")
+    text_file.write(str(candidates[0]) + ": " + str(khan_percent) + "% " + "(" + str(khan_counter) + ")" + "\n")
+    text_file.write(str(candidates[1]) + ": " + str(correy_percent) + "% " + "(" + str(correy_counter) + ")" + "\n")
+    text_file.write(str(candidates[2]) + ": " + str(li_percent) + "% " + "(" + str(li_counter) + ")" + "\n")
+    text_file.write(str(candidates[3]) + ": " + str(otooley_percent) + "% " + "(" + str(otooley_counter) + ")" + "\n")
+    text_file.write("------------------------------- \n")
+    text_file.write("Winner: " + str(winner) + "\n")
+    text_file.write("------------------------------- \n")
